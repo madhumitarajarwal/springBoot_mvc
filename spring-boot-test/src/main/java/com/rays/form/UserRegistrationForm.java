@@ -3,6 +3,7 @@ package com.rays.form;
 import java.util.Date;
 
 public class UserRegistrationForm {
+	protected Long id;
 
 	private String firstName;
 
@@ -13,6 +14,14 @@ public class UserRegistrationForm {
 	private String password;
 
 	private Date dob;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public UserRegistrationForm() {
 	}

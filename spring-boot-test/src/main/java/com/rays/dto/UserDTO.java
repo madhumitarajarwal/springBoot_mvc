@@ -1,24 +1,13 @@
 package com.rays.dto;
 
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "ST_USER")
-public class UserDTO {
-
-	@Id
-	@GeneratedValue(generator = "ncsPk")
-	@GenericGenerator(name = "ncsPk", strategy = "native")
-	@Column(name = "ID", unique = true, nullable = false)
-	protected Long id;
+public class UserDTO extends BaseDTO {
 
 	@Column(name = "FIRST_NAME", length = 50)
 	private String firstName;
@@ -34,13 +23,27 @@ public class UserDTO {
 
 	@Column(name = "DOB")
 	private Date dob;
-
-	public Long getId() {
-		return id;
+    
+	@Column(name = "ROLE_ID")
+	private Long roleId;
+	
+	@Column(name = "ROLE_NAME", length = 50)
+	private String roleName;
+	
+	public String getRoleName() {
+		return roleName;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
+
+	public Long getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(Long roleId) {
+		this.roleId = roleId;
 	}
 
 	public String getFirstName() {
