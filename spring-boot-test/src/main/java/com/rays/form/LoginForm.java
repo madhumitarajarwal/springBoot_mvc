@@ -1,12 +1,15 @@
 package com.rays.form;
 
+import javax.validation.constraints.NotEmpty;
+
 public class LoginForm {
      
-	protected Long id;
+	@NotEmpty(message = "loginId is required")
 	private String loginId;
-
+    
+	@NotEmpty(message = "password is required")
 	private String password;
-	
+    
 	public String getLoginId() {
 		return loginId;
 	}
@@ -23,12 +26,5 @@ public class LoginForm {
 		this.password = password;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 	
 }

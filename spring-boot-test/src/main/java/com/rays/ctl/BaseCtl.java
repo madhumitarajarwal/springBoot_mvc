@@ -1,6 +1,6 @@
 package com.rays.ctl;
 
-import java.util.HashMap;
+import java.util.HashMap; 
 import java.util.Map;
 import java.util.List;
 import org.springframework.validation.BindingResult;
@@ -13,7 +13,7 @@ import com.rays.common.ORSResponse;
 public class BaseCtl {
      
 	public ORSResponse validate(BindingResult bindingResult) {
-		ORSResponse res=new ORSResponse();
+		ORSResponse res=new ORSResponse(true);
 		
 		if(bindingResult.hasErrors()) {
 			res.setSuccess(false);

@@ -2,18 +2,34 @@ package com.rays.form;
 
 import java.util.Date;
 
-public class UserRegistrationForm {
-	protected Long id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
+import com.rays.dto.BaseDTO;
+import com.rays.dto.UserDTO;
+
+public class UserRegistrationForm extends BaseForm{
+
+
+	@NotEmpty(message = "firstName is required")
 	private String firstName;
-
+    
+	@NotEmpty(message = "lastName is required")
 	private String lastName;
-
+    
+	@NotEmpty(message = "loginId is required")
 	private String loginId;
-
+    
+	@NotEmpty(message = "password is required")
 	private String password;
-
+    
+	@NotNull(message = "Date of birth is required")
 	private Date dob;
+	
+	private long roleId;
+
+	public UserRegistrationForm() {
+	}
 
 	public Long getId() {
 		return id;
@@ -23,13 +39,9 @@ public class UserRegistrationForm {
 		this.id = id;
 	}
 
-	public UserRegistrationForm() {
-	}
-
 	public String getFirstName() {
 		return firstName;
 	}
-
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
@@ -64,5 +76,24 @@ public class UserRegistrationForm {
 
 	public void setDob(Date dob) {
 		this.dob = dob;
+	}
+
+	public long getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(long roleId) {
+		this.roleId = roleId;
+	}
+	@Override
+	public BaseDTO getDto() {
+		UserDTO dto = (UserDTO) initDTO(new UserDTO());
+		dto.setFirstName(firstName);
+		dto.setLastName(lastName);
+		dto.setLoginId(loginId);
+		dto.setPassword(password);
+		dto.setDob(dob);
+		dto.setRoleId(roleId);
+		return dto;
 	}
 }

@@ -1,50 +1,40 @@
 package com.rays.dto;
 
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import com.rays.dto.BaseDTO;
+
 @Entity
-@Table(name = "ST_USER")
+@Table(name = "st_user")
 public class UserDTO extends BaseDTO {
 
-	@Column(name = "FIRST_NAME", length = 50)
+	@Column(name = "first_name", length = 50)
 	private String firstName;
 
-	@Column(name = "LAST_NAME", length = 50)
+	@Column(name = "last_name", length = 50)
 	private String lastName;
 
-	@Column(name = "LOGIN_ID", length = 50)
+	@Column(name = "login_id", length = 50)
 	private String loginId;
 
-	@Column(name = "PASSWORD", length = 50)
+	@Column(name = "password", length = 50)
 	private String password;
 
-	@Column(name = "DOB")
+	@Column(name = "dob")
 	private Date dob;
-    
-	@Column(name = "ROLE_ID")
+
+	@Column(name = "role_id")
 	private Long roleId;
-	
-	@Column(name = "ROLE_NAME", length = 50)
+
+	@Column(name = "role_name", length = 50)
 	private String roleName;
-	
-	public String getRoleName() {
-		return roleName;
-	}
 
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
-	}
-
-	public Long getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(Long roleId) {
-		this.roleId = roleId;
-	}
+	@Column(name = "image_id")
+	private Long imageId;
 
 	public String getFirstName() {
 		return firstName;
@@ -84,5 +74,33 @@ public class UserDTO extends BaseDTO {
 
 	public void setDob(Date dob) {
 		this.dob = dob;
+	}
+
+	public Long getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(Long roleId) {
+		this.roleId = roleId;
+	}
+
+	public String getRoleName() {
+		return roleName;
+	}
+
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
+
+	public Long getImageId() {
+		return imageId;
+	}
+
+	public void setImageId(Long imageId) {
+		this.imageId = imageId;
+	}
+	
+	public String getValue() {
+		return null;
 	}
 }
